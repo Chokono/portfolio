@@ -1,0 +1,90 @@
+.header_add {
+	text-align: center;
+	min-height: 300px;
+	.big_new_shop {
+		cursor: pointer;
+		padding: 30px 50px;
+		font-size: 28px;
+		border-radius: 10px;
+		margin-top: 70px;
+	}
+	.new_shop_form {
+		display: block;
+		margin: 70px auto 120px;
+		max-width: 650px;
+		padding: 50px;
+		border-radius: 10px;
+		border: 2px solid $color;
+		text-align: left;
+		h3 { 
+			text-align: center; 
+			font-size: 24px;
+			margin: 30px 0;
+		}
+		input[type="text"] {
+			display: block;
+			padding: 10px 0;
+			text-indent: 10px;
+			margin-bottom: 30px;
+			width: 100%;
+		}
+		label {
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		input[type="submit"] {
+			padding: 20px 35px;
+			display: block;
+			margin: 50px auto;
+			max-width: 200px;
+			color: $link_col;
+			cursor: pointer;
+			&:hover {
+				color: $link_hov;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.shops_block {
+	padding: 50px;
+	border: 2px solid $color;
+	border-radius: 10px;
+	.line_number {
+		display: inline-block;
+		width: 50px;
+		text-align: center;
+		font-size: 24px;
+	}
+	.shop_name {
+		cursor: pointer;
+	}
+}
+.shop_tables {
+	.shop_menu {
+		display: block;
+		&::after {
+			display: block;
+			content: '';
+			clear: both;
+		}
+		li {
+			display: block;
+			float: left;
+			width: calc(33.333% - 2px);
+			border: 1px solid $color;
+		}
+		a {
+			display: block;
+			text-align: center;
+			height: 30px;
+			line-height: 30px;
+			vertical-align: middle;
+		}
+	}
+}
+ body {
+ 	background-color: #fff;
+ }
+
+@import "../public/colors"

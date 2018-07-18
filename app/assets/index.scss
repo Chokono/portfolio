@@ -1,0 +1,105 @@
+@import 'reset';
+@import 'fonts';
+
+body {
+    font-family: "Tahova";
+    background-position: center top;
+    background-repeat: no-repeat;
+    min-height: 1800px;
+    //opacity:0.1;
+}
+
+.row {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+.clear {
+	clear: both;
+}
+h1 {
+	font-size: 36px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+h3 {
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.main {
+	background-color: #f8ecdd;
+	padding: 70px 0;
+}
+.table {
+	display:table;
+	width: 100%;
+	.thead, .tbody {
+		display: table-row-group;
+	}
+	.tr {
+		display: table-row;
+		.td {
+			display: table-cell;
+		}
+	}
+}
+.overlay {
+	background-color: rgba(0,0,0,0.3);
+	z-index: -1;
+	opacity: 0;
+	transition: 0.3s;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+.open_overlay {
+	opacity: 1;
+	z-index: 100;
+}
+.form_toogle {
+	z-index: -1;
+	opacity: 0;
+	transition: 0.3s;
+	transform: translate(-50%,-50%);
+	position: fixed;
+	top: 30%;
+	left: 50%;
+}
+.form_toogle_open {
+	opacity: 1;
+	z-index: 101;
+	top: 50%;
+}
+.loading {
+	position: fixed;
+	z-index: 2000;
+	width: 100vh;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba(100,110,100,0.3);
+}
+.loading p {
+	display: block;
+	text-align: center;
+	position: absolute;
+	top: 30%;
+	left: 0;
+	font-size: 40px;
+}
+@import 'public/header';
+@import 'public/footer';
+@import 'pages/balance';
+@import 'pages/shops';
+@import 'pages/autorization';
+/*font: 15px EnamelaW01-Condensed, arial, sans-serif;*/
