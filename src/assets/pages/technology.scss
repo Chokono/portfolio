@@ -1,0 +1,134 @@
+.technologyCont {
+	float: left;
+	padding: 15px;
+	box-sizing: border-box;
+	width: 25%;
+	@media (max-width: 749px) {
+		width: 50%;
+	}
+	&:focus, &:active {
+		outline: none;
+	}
+	.technologyContInner {
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		border: 2px solid transparent;
+		img {
+			width: 100%;
+			margin-bottom: -4px;
+		}
+		.technologyImgFon {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+			background-color: rgba(0,0,0,0.15);
+		}
+		&:hover {
+			border: 2px solid black;
+			.technologyImgFon {
+				background-color: transparent;
+			}
+		}
+	}
+	.active {
+		border: 2px solid #a19e17;
+		box-shadow: 0 0 25px 0 #b5d16b;
+		.technologyImgFon {
+			background-color: transparent;
+		}
+	}
+}
+/*.js {
+	background-color: #fadb5e;
+	padding: 50px 0;
+	color: #018d79;
+}
+.react {
+	background-color: #80ebfe;
+	padding: 50px 0;
+	color: #cf2247;
+}
+.redux {
+	background-color: #3d296e;
+	padding: 50px 0;
+	color: #fff;
+}
+.node {
+	background-color: #e9f5ce;
+	padding: 50px 0;
+	color: #a81a93;
+}
+.php {
+	background-color: #f2f5fe;
+	padding: 50px 0;
+	color: #074843;
+}
+.laravel {
+	background-color: #ff8472;
+	padding: 50px 0;
+	color: #0d30c2;
+}
+.wordpress {
+	background-color: #21759a;
+	padding: 50px 0;
+	color: #e4e69a;
+}
+.opencart {
+	background-color: #fff;
+	padding: 50px 0;
+}*/
+
+h2 {
+	margin: 0.5em 0;
+	font-size: 3em;
+	text-align: center;
+	text-transform: uppercase;
+	@media (max-width: 750px) {
+		font-size: 2em;
+	}
+}
+h3 {
+	font-size: 2em;
+	margin: 0.5em 0;
+	text-align: left;
+	@media (max-width: 750px) {
+		font-size: 1.5em;
+	}
+}
+p {
+	font-size: 1em;
+	margin: 0 0.5em;
+	line-height: 1.3;
+	@media (max-width: 750px) {
+		line-height: 1.5;
+	}
+}
+.technologySection {
+	.techDescription {
+		max-height: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+		transition: 0.5s;
+		transition-delay: 0.2s;
+		border-radius: 10px;
+		border: 2px solid transparent;
+		background-color: transparent;
+		position: relative;
+		overflow: hidden;
+		padding: 50px 30px;
+		color: white;
+		@media (max-width: 750px) {
+			padding: 30px 10px;
+		}
+	}
+	.open {
+		border-color: #d8d13a;
+		background-color: #313131;
+		max-height: 10000px;
+	}
+}

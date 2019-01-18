@@ -1,0 +1,14 @@
+.twoFields {
+	float: left;
+	padding: 15px;
+	width: 50%;
+	box-sizing: border-box;
+	@media (max-width: 749px) {
+		width: 100%;
+	}
+}
+
+.linkBlue {
+	color: #769ae3;
+    text-decoration: none;
+}

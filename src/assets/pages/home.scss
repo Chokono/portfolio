@@ -1,0 +1,67 @@
+.homeSection {
+    .homeSectionH3 {
+        font-size: 3em;
+        margin: 1em 0;
+    }
+    p {
+        font-size: 1.2em;
+        line-height: 1.2;
+        margin-bottom: 1em;
+    }
+}
+.homeSectionH4 {
+    font-size: 26px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.anchorWorkCompany {
+    li {
+        padding-left: 20px;
+        position: relative;
+        line-height: 2em;
+        vertical-allign: middle;
+        
+        a {
+            color: #769ae3;
+            text-decoration: none;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                left: 5px;
+                top: 0.8em;
+                width: 0.5em;
+                height: 0.5em;
+                background-color: #769ae3;
+                border-radius: 50%;
+            }
+            &:hover {
+                color: #bfb126;
+            }
+            &:hover::after {
+                background-color: #bfb126;
+            }
+        }
+    }
+}
+
+.technologyList {
+    list-style-type: disc;
+    color: black;
+    padding-left: 15px;
+    margin-bottom: 2em;
+    li {
+        line-height: 1.6em;
+        color: #bfb126;
+    }
+    .siteLink {
+        color: #769ae3;
+        a {
+            color: inherit;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

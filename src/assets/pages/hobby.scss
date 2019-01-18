@@ -1,0 +1,34 @@
+.hobbyBlock {
+	float: left;
+	padding: 15px;
+	box-sizing: border-box;
+	width: 33.33%;
+	position: relative;
+	@media (max-width: 749px) {
+		width: 100%;
+	}
+	img {
+		position: relative;
+		height: 16em;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	h5 {
+		font-size: 2em;
+		text-align: center;
+		margin-top: 1em;
+		color: inherit;
+	}
+}
+
+.linkBlock {
+	display: block;
+	text-decoration: none;
+	color: black;
+	&:focus {
+		outline: none;
+	}
+	&:hover {
+		color: #bfb126;
+	}
+}
