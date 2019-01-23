@@ -9,29 +9,31 @@ const dictionary = require('lib/dictionary.json');
 
 const InterestingComp = (props)=>{
 	props.headerChange(props.match.path);
-    return ([
-        <Header key="1" />,
-        <main key="2">
-            <div className="row">
-                <p>{dictionary[props.language].hobby.intro}</p>
-                <div className="container clearFix">
-                    <Link to="/interesting/sport" className="hobbyBlock linkBlock">
-                        <img src="/src/assets/img/run.png" alt="" />
-                        <h5>{dictionary[props.language].header.sport}</h5>
-                    </Link>
-                    <Link to="/interesting/literature" className="hobbyBlock linkBlock">
-                        <img src="/src/assets/img/poet.png" alt="" />
-                        <h5>{dictionary[props.language].header.literature}</h5>
-                    </Link>
-                    <Link to="/interesting/games" className="hobbyBlock linkBlock">
-                        <img src="/src/assets/img/virtual.png" alt="" />
-                        <h5>{dictionary[props.language].header.games}</h5>
-                    </Link>
+    return (
+        <>
+            <Header />
+            <main>
+                <div className="row">
+                    <p>{dictionary[props.language].hobby.intro}</p>
+                    <div className="container clearFix">
+                        <Link to="/interesting/sport" className="hobbyBlock linkBlock">
+                            <img src="/src/assets/img/run.png" alt="" />
+                            <h5>{dictionary[props.language].header.sport}</h5>
+                        </Link>
+                        <Link to="/interesting/literature" className="hobbyBlock linkBlock">
+                            <img src="/src/assets/img/poet.png" alt="" />
+                            <h5>{dictionary[props.language].header.literature}</h5>
+                        </Link>
+                        <Link to="/interesting/games" className="hobbyBlock linkBlock">
+                            <img src="/src/assets/img/virtual.png" alt="" />
+                            <h5>{dictionary[props.language].header.games}</h5>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        </main>,
-        <Footer key="3" />
-    ])
+            </main>
+            <Footer />
+        </>
+    )
 }
 
 export default connect(

@@ -47,79 +47,47 @@ http2.createSecureServer(PortfolioOptions, function(request, response) {
         res.end(JSON.stringify({}));
     };
 
-    console.sent("shops.zeny", request.method, urlParsed.host, request.headers.referer, urlParsed.pathname);
+    console.sent("portfolio", request.method, urlParsed.host, request.headers.referer, urlParsed.pathname);
 
     response.setHeader('Access-Control-Allow-Origin', '*');
 
-    if (urlParsed.pathname.indexOf("/apiv1/") === 0) {
-        if (request.method === "POST") {
-            if (urlParsed.pathname === "/apiv1/user") {
+    if (request.method == "GET") {
+        if (urlParsed.pathname === "/") {
+            request = UTILS.getFile(response, path.join(__dirname, "bundle", "index.html"));
 
-                callback = ({ req, res }) => {
+            callback = ({ req, res }) => { req.pipe(res) };
 
-                    // (async function() {
-                    //     let newUser = await Member.findById(req.body.userID).select(['email', 'date', 'age', 'name']).exec();
-                    //     if (!newUser) {
-                    //         newUser = new Member({
-                    //             _id: req.body.userID,
-                    //             email: req.body.userEmail,
-                    //             date: new Date
-                    //         });
-                    //         await newUser.save();
-                    //         newUser = await Member.findById(req.body.userID).select(['email', 'date', 'age', 'name']).exec();
-                    //     }
-                    //     return newUser;
-                    // })().then((result) => {
-                    //     res.end(JSON.stringify(result));
-                    // }).catch(UTILS.catchServerError({ req, res }));
+        } else if (urlParsed.pathname === "/some-private") {
+            request.advancedOptions = {
+                checkToken: true,
+            };
+
+            callback = ({ req, res }) => {
+
+                if (req.body.code) {
+                    res.statusCode = parseInt(req.body.code, 10);
                 }
 
-            } else if (urlParsed.pathname === "/apiv1/shops") {
-
-                callback = ({ req, res }) => {
-                   
-                }
+                res.end(JSON.stringify(req.body));
             }
-        }
-    } else {
-        if (request.method == "GET") {
-            if (urlParsed.pathname === "/") {
-                request = UTILS.getFile(response, path.join(__dirname, "bundle", "index.html"));
+        } else if (reqType === "application/octet-stream") {
+            request = UTILS.getFile(response, path.join(__dirname, "bundle", "index.html"));
 
-                callback = ({ req, res }) => { req.pipe(res) };
+            callback = ({ req, res }) => { req.pipe(res) };
 
-            } else if (urlParsed.pathname === "/some-private") {
-                request.advancedOptions = {
-                    checkToken: true,
-                };
+        } else if (reqType !== "application/octet-stream") {
+            request = UTILS.getFile(response, path.join(__dirname, "bundle", urlParsed.pathname));
 
-                callback = ({ req, res }) => {
-
-                    if (req.body.code) {
-                        res.statusCode = parseInt(req.body.code, 10);
-                    }
-
-                    res.end(JSON.stringify(req.body));
-                }
-            } else if (reqType === "application/octet-stream") {
-                request = UTILS.getFile(response, path.join(__dirname, "bundle", "index.html"));
-
-                callback = ({ req, res }) => { req.pipe(res) };
-
-            } else if (reqType !== "application/octet-stream") {
-                request = UTILS.getFile(response, path.join(__dirname, "bundle", urlParsed.pathname));
-
-                callback = ({ req, res }) => {
-                    req.pipe(res)
-                };
-            }
+            callback = ({ req, res }) => {
+                req.pipe(res)
+            };
         }
     }
 
     middlewares.init({ req: request, res: response }, callback);
 
 }).listen(ENV.PORT || 3001, '127.0.0.1', () => {
-    console.log(`https://shops.zeny:${ENV.PORT||3001}`);
+    console.log(`https://portfolio:${ENV.PORT||3001}`);
 });
 
 process.on('uncaughtException', function(error) {

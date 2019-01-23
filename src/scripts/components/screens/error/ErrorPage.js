@@ -7,11 +7,13 @@ import Header from 'shared/Header';
 import Footer from 'shared/Footer';
 
 const ErrorPage = (props) => {
-    return([
-        <Header key="1" />,
-        <h2 key="2">{dictionary[props.language].errors.notFound}</h2>,
-        <Footer key="3" />
-    ])
+    return(
+        <>
+            <Header />
+            <h2>{dictionary[props.language].errors.notFound}</h2>
+            <Footer />
+        </>
+    )
 }
 
 export default connect(

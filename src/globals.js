@@ -27,21 +27,15 @@ let ERRORS = {
     770410: "You haven't balance note with this ID in your shop",
 };
 
-let ORDER_STATUS = {
-    "1": "in progress",
-    "2": "ok",
-    "3": "cancelled",
-    "4": "failed",
-    "5": "claim balance"
-};
-
 module.exports = {
     PATH_TO_MIDDLEWARES: ROOTDIR + "/middlewares",
     PATH_TO_MODELS: ROOTDIR + "/models",
     PATH_TO_BUNDLE: ROOTDIR + "/bundle",
-    JWT_STORAGE: {},
+    PATH_TO_SHARED: ROOTDIR + "/scripts/components/shared/",
+    PATH_TO_SCREENS: ROOTDIR + "/scripts/components/screens/",
+    PATH_TO_LIBS: ROOTDIR + "/scripts/lib/",
+    PATH_TO_REDUSERS: ROOTDIR + "/scripts/reducers/",
     UTILS: {},
-    ORDER_STATUS,
     ERRORS,
     ENV: process.env,
 };

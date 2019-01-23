@@ -8,29 +8,31 @@ const dictionary = require('lib/dictionary.json');
 
 const Literature = (props)=>{
 	props.headerChange(props.match.path);
-    return ([
-        <Header key="1" />,
-        <main key="2">
-            <div className="row">
-                <p>{dictionary[props.language].literature.intro}</p>
-                <div className="container clearFix">
-                    <div className="hobbyBlock">
-                        <img src="/src/assets/img/dozor.png" alt="" />
-                        <h5>{dictionary[props.language].literature.autor1}</h5>
-                    </div>
-                    <div className="hobbyBlock">
-                        <img src="/src/assets/img/duma.png" alt="" />
-                        <h5>{dictionary[props.language].literature.autor2}</h5>
-                    </div>
-                    <div className="hobbyBlock">
-                        <img src="/src/assets/img/ostrov.png" alt="" />
-                        <h5>{dictionary[props.language].literature.autor3}</h5>
+    return (
+        <>
+            <Header />
+            <main>
+                <div className="row">
+                    <p>{dictionary[props.language].literature.intro}</p>
+                    <div className="container clearFix">
+                        <div className="hobbyBlock">
+                            <img src="/src/assets/img/dozor.png" alt="" />
+                            <h5>{dictionary[props.language].literature.autor1}</h5>
+                        </div>
+                        <div className="hobbyBlock">
+                            <img src="/src/assets/img/duma.png" alt="" />
+                            <h5>{dictionary[props.language].literature.autor2}</h5>
+                        </div>
+                        <div className="hobbyBlock">
+                            <img src="/src/assets/img/ostrov.png" alt="" />
+                            <h5>{dictionary[props.language].literature.autor3}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>,
-        <Footer key="3" />
-    ])
+            </main>
+            <Footer />
+        </>
+    )
 }
 
 export default connect(

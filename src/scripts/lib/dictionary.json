@@ -111,15 +111,15 @@
 			"topText": "Компании, в которых я работал:",
 			"workPeriodLabel": "Период работы: ",
 			"aetDescription": "Работа в \"AET Groupe\" была началом моей карьеры в сфере IT. На тот момент у меня не было ни навыков, ни опыта, да, откровенно говоря, и знаний не хватало. В основном я выполнял самую простую работу. По большей части, это верстка, не обремененная сложными технологиями. Мною выполнялись обязанности контент менеджера, верстальщика HTML рассылок.\n Шло время, и вместе с ним повышались мои навыки. С помощью JS я научился создавать слайдеры, устанавливать фильтры, менять контент страниц. Венцом моей профессиональной деятельности в этой кампании был созданный и поставленный на систему MODX сайт для 5D кинотеатров. После этого зарплата, которую мне платили в данной кампании перестала меня устраивать.",
-			"aetPeriod": "Декабрь 2015 - Июнь 2016",
+			"aetPeriod": "",
 			"learn": "Научился работать:",
 			"layout": "Верстка HTML-писем",
 			"webmatrixDescription": "Работа в вебстудии \"Webmatrix\" требовала намного больших знаний, нежели в предыдущей компании. Там я научился создавать интернет магазины, отточил навыки верстки до автоматизма, познакомился с правилами XHR запросов. В основном здесь мне приходилось работать с системой opencart. Так же здесь я научился активно использовать и редактировать плагины, менять шаблоны и переносить товары из одной базы данных MYSQL в другую.\n Но чем больше я там работал, тем отчетлевее понимал, что конвеер по созданию сайтов - это не то, к чему я стремился, делая первые шаги по изучению языков программирования. Я мечтал создавать сложные проекты, использовать передовые технологии, работать в команде проффессиональных разработчиков. Здесь же мне не давали выйти за пределы стандартных CMS на базе PHP. Осознание бесперспективности в плане личностного роста дали мотивацию к дальнейшему поиску более подходящей работы.",
-			"webmatrixPeriod": "Август 2016 - Июнь 2017",
+			"webmatrixPeriod": "",
 			"ltd": "В компании \"Business Solution LTD\" основной моей задачей было поддержание CRM, написанной на фреймворке \"Laravel\". До этого я не только не знал Laravel, но и в принципе плохо представлял себе, что такое фреймворк, и как на нем можно создавать сайты и программы. Здесь я понял, что такое router, и как работает прокси сервер. Кроме того здесь я изучил Word Press, так как основной сайт был написан именно на этой CMS. За несколько месяцев я изучил принцип работы CRM, научился автоматически интегрировать пользователей, заполнивших форму регистрации, в систему. Эта работа была и перспективной и полезной в плане профессионального роста, но она имела огромный минус: во всех проектах использовался язык PHP. Сердце мое лежало к языку Java Script. Уже тогда, когда у меня появлялась свободная минутка, я изучал React JS, и это мне очень пригодилось на следующей работе.",
-			"ltdPeriod": "Июнь 2017 - Ноябрь 2017",
+			"ltdPeriod": "",
 			"software": "Когда я устроился в \"Software Business Technology\", я уже многое знал и умел. Но до этого я всегда был единственным разработчиком в доверенной мне области. Здесь же я научился работать в команде, освоил систему управления версиями GIT. И несмотря на то, что изначально меня брали как Word Press разработчика, я очень быстро сделал все задачи по редактированию сайтов и принял участие в разработке проекта по React JS",
-			"softwarePeriod": "Ноябрь 2017 по настоящее время"
+			"softwarePeriod": ""
 		}
 	},
 	"en": {
@@ -234,15 +234,15 @@
 			"topText": "The companies in which I worked:",
 			"workPeriodLabel": "Work period: ",
 			"aetDescription": "The work in \"AET Groupe\" was the beginning of my career in IT. At that time, I did not have the skills or experience, and, frankly, I did not have enough knowledge. Basically, I did the simplest job. For the most part, this is a layout that is not burdened with complex technologies. I was responsible for the content manager, HTML layout maker. \n Time passed, and with it my skills improved. With the help of JS, I learned how to create sliders, install filters, and change the content of pages. The crown of my professional activity in this campaign was the site created and put on the MODX system for 5D cinemas. After that, the salary that I was paid in this campaign ceased to suit me.",
-			"aetPeriod": "December 2015 - June 2016",
+			"aetPeriod": "",
 			"learn": "Has learned to work:",
 			"layout": "Make HTML-letters",
 			"webmatrixDescription": "Work in web studio \"Webmatrix\" required much more knowledge than in the previous company. There I learned how to create online stores, perfected the layout skills to automatism, got acquainted with the rules of XHR queries. Basically here I had to work with the opencart system. Also here I learned how to actively use and edit plug-ins, change templates and transfer products from one MYSQL database to another.\n But the more I worked there, the more I realized that the pipeline for creating websites is not what I sought, taking the first steps in the study of programming languages. I dreamed of creating complex projects, using advanced technologies, working with a team of professional developers. Here, I was not allowed to go beyond the standard CMS based on PHP. The realization of hopelessness in terms of personal growth gave motivation for the further search for a more suitable job.",
-			"webmatrixPeriod": "August 2016 - June 2017",
+			"webmatrixPeriod": "",
 			"ltd": "In the company \"Business Solution LTD\" my main task was to maintain CRM, written in the framework \"Laravel\". Before that, I not only did not know Laravel, but in principle I had a bad idea of ​​what a framework was, and how you can create websites and programs on it. Here I understood what a router is, and how the proxy server works. In addition, here I studied Word Press, since the main site was written exactly on this CMS. For a few months I studied the principle of CRM work, I learned how to automatically integrate users who filled out the registration form into the system. This work was both perspective and useful in terms of professional growth, but it had a huge disadvantage: all projects used the language of PHP. My heart lay to the language of Java Script. Already when I had a free minute, I studied React JS, and it was very useful to me at the next job.",
-			"ltdPeriod": "June 2017 - November 2017",
+			"ltdPeriod": "",
 			"software": "When I got a job at \"Software Business Technology\", I already knew and knew a lot. But before that, I was always the only developer in the field entrusted to me. Here I learned to work in a team, I mastered the version control system GIT. And despite the fact that initially I was taken as a Word Press developer, I very quickly made all the tasks of editing sites and took part in the development of the project on React JS",
-			"softwarePeriod": "November 2017 to the present"
+			"softwarePeriod": ""
 		}
 	}
 }

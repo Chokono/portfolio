@@ -1,13 +1,11 @@
-import HomeComp from 'comp/screens/home/HomeComp';
-import Header from 'comp/shared/Header';
-import Footer from 'comp/shared/Footer';
-import InterestingComp from "comp/screens/interesting/InterestingComp";
-import Literature from "comp/screens/interesting/Literature";
-import Sport from "comp/screens/interesting/Sport";
-import Games from "comp/screens/interesting/Games";
-import Technology from "comp/screens/technology/Technology";
-import Contacts from "comp/screens/contacts/Contacts";
-import ErrorPage from "comp/screens/error/ErrorPage";
+import HomeComp from 'comp/home/HomeComp';
+import InterestingComp from "comp/interesting/InterestingComp";
+import Literature from "comp/interesting/Literature";
+import Sport from "comp/interesting/Sport";
+import Games from "comp/interesting/Games";
+import Technology from "comp/technology/Technology";
+import Contacts from "comp/contacts/Contacts";
+import ErrorPage from "comp/error/ErrorPage";
 
 export const routes = [{
         path: '/',

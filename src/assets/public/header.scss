@@ -29,7 +29,7 @@ $backgroundMenu: black;
     height: 500px;
     width: 100%;
     overflow: hidden;
-    background-color: #555;
+    background-color: #111;
     @media (max-width: 749px) {
         height: 200px;
     }
@@ -165,11 +165,15 @@ $backgroundMenu: black;
             }
         }
         .ru {
-            background: url(./img/russia.jpeg) center no-repeat;
+            background-image: url(./img/russia.jpeg);
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
         }
         .en {
-            background: url(./img/England.jpg) center no-repeat;
+            background-image: url(./img/England.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
             background-size: cover;
         }
         .headerTitle {
@@ -262,87 +266,129 @@ $backgroundMenu: black;
 }
 
 .homePage {
-    background: url(./img/keyboard.png) no-repeat center;
+    background-image: url(./img/keyboard.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     height: 430px;
     @media (max-width: 1400px) {
-        background: url(./img/keyboard1200.png) no-repeat center;
+        background-image: url(./img/keyboard1200.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/keyboard500.png) no-repeat center;
+        background-image: url(./img/keyboard500.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
 .technologyPage {
-    background: url(./img/steak.png) no-repeat center;
+    background-image: url(./img/steak.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     @media (max-width: 1400px) {
-        background: url(./img/steak1200.png) no-repeat center;
+        background-image: url(./img/steak1200.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/steak500.png) no-repeat center;
+        background-image: url(./img/steak500.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
 .contactPage {
-    background: url(./img/contacts.png) no-repeat center;
+    background-image: url(./img/contacts.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     @media (max-width: 1400px) {
-        background: url(./img/contacts1200.png) no-repeat center;
+        background-image: url(./img/contacts1200.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/contacts500.png) no-repeat center;
+        background-image: url(./img/contacts500.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
 .interestingPage {
-    background: url(./img/hobby.jpg) no-repeat center;
+    background-image: url(./img/hobby.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     @media (max-width: 1400px) {
-        background: url(./img/hobby1200.jpg) no-repeat center;
+        background-image: url(./img/hobby1200.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/hobby500.jpg) no-repeat center;
+        background-image: url(./img/hobby500.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
 .literaturePage {
-    background: url(./img/literature.jpg) no-repeat center;
+    background-image: url(./img/literature.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     @media (max-width: 1400px) {
-        background: url(./img/literature1200.jpg) no-repeat center;
+        background-image: url(./img/literature1200.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/literature500.jpg) no-repeat center;
+        background-image: url(./img/literature500.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
 .sportPage {
-    background: url(./img/sport.png) no-repeat center;
+    background-image: url(./img/sport.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     @media (max-width: 1400px) {
-        background: url(./img/sport1200.png) no-repeat center;
+        background-image: url(./img/sport1200.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/sport500.png) no-repeat center;
+        background-image: url(./img/sport500.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
 .gamesPage {
-    background: url(./img/games.png) no-repeat center;
+    background-image: url(./img/games.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     @media (max-width: 1400px) {
-        background: url(./img/games1200.png) no-repeat center;
+        background-image: url(./img/games1200.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
     @media (max-width: 750px) {
-        background: url(./img/games500.png) no-repeat center;
+        background-image: url(./img/games500.png);
+        background-position: center;
+        background-repeat: no-repeat;
         background-size: cover;
     }
 }
