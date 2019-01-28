@@ -87,7 +87,7 @@ http2.createSecureServer(PortfolioOptions, function(request, response) {
     middlewares.init({ req: request, res: response }, callback);
 
 }).listen(ENV.PORT || 3001, '127.0.0.1', () => {
-    console.log(`https://portfolio:${ENV.PORT||3001}`);
+    console.log(`https://indicaonline:${ENV.PORT||3001}`);
 });
 
 process.on('uncaughtException', function(error) {

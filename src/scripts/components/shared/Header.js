@@ -1,20 +1,40 @@
 import React, {Component} from "react";
-import { Link } from "react-router-dom";
-import { connect } from 'react-redux'
+import { Link, NavLink } from "react-router-dom";
+import cx from 'classnames';
+import { connect } from 'react-redux';
 import MediaQuery from 'react-responsive';
 
 const dictionary = require('lib/dictionary');
+const headerImagesSrc = require('lib/headerImagesSrc');
 
 class Header extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isHeaderImageLoading: true
+        }
+        this.clickLike = this.clickLike.bind(this);
     };
+    clickLike() {
+        if (this.props.countOfLike !== 'loading') {
+            this.props.setLike(this.props.countOfLike);
+        }
+    }
+    imageLoad() {
+        this.setState({isHeaderImageLoading: false});
+    }
     componentDidMount(){
         this.props.showMenuReset(this.props.menuTriggerStatus);
     };
     render() {
         return (
-            <header className={`header ${this.props.imageClassName}`}>
+            <header className={cx('header', this.props.imageClassName, {['headerBlur']: this.state.isHeaderImageLoading})}>
+                {this.state.isHeaderImageLoading && <div className="headerBlur smallHeaderImage"></div>}
+                <picture className='headerImageContainer'>
+                    <source media="(max-width: 750px)" srcset={headerImagesSrc[this.props.imageClassName][750]} />
+                    <source media="(max-width: 1200px)" srcset={headerImagesSrc[this.props.imageClassName][1200]} />
+                    <img src={headerImagesSrc[this.props.imageClassName][1920]} alt="" onLoad={imageLoad}/>
+                </picture>
                 <div className="headerBlock">
                     <MediaQuery query="(max-width: 749px)">
                         <div className="menuTrigger" onClick={this.props.onMenuTriggerClick(this.props.menuTriggerStatus)}>
@@ -25,27 +45,27 @@ class Header extends Component {
                     <div className="row">
                         <ul className={`menu ${this.props.menuTriggerClassName}`}>
                             <li className="menuLi">
-                                <Link to="/" className={('/' === this.props.path) ? 'active' : null}>{dictionary[this.props.language].header.main}</Link>
+                                <Link to="/" className={cx({['active']:'/' === this.props.path})}>{dictionary[this.props.language].header.main}</Link>
                             </li>
                             <li className="menuLi">
-                                <Link to="/technology" className={('/technology' === this.props.path) ? 'active' : null}>{dictionary[this.props.language].header.technology}</Link>
+                                <NavLink to="/technology" activeClassName='active'>{dictionary[this.props.language].header.technology}</NavLink>
                             </li>
                             <li className="menuLi">
-                                <Link to="/interesting" className={('/interesting' === this.props.path.slice(0,12)) ? 'active' : null}>{dictionary[this.props.language].header.hobby}</Link>
+                                <NavLink to="/interesting" activeClassName='active'>{dictionary[this.props.language].header.hobby}</NavLink>
                                 <ul className="subMenu">
                                     <li className="menuLi subMenuLi">
-                                        <Link to="/interesting/literature" className={('/interesting/literature' === this.props.path) ? 'active' : null}>{dictionary[this.props.language].header.literature}</Link>
+                                        <NavLink to="/interesting/literature" activeClassName='active'>{dictionary[this.props.language].header.literature}</NavLink>
                                     </li>
                                     <li className="menuLi subMenuLi">
-                                        <Link to="/interesting/sport" className={('/interesting/sport' === this.props.path) ? 'active' : null}>{dictionary[this.props.language].header.sport}</Link>
+                                        <NavLink to="/interesting/sport" activeClassName='active'>{dictionary[this.props.language].header.sport}</NavLink>
                                     </li>
                                     <li className="menuLi subMenuLi">
-                                        <Link to="/interesting/games" className={('/interesting/games' === this.props.path) ? 'active' : null}>{dictionary[this.props.language].header.games}</Link>
+                                        <NavLink to="/interesting/games" activeClassName='active'>{dictionary[this.props.language].header.games}</NavLink>
                                     </li>
                                 </ul>
                             </li>
                             <li className="menuLi">
-                                <Link to="/contacts" className={('/contacts' === this.props.path) ? 'active' : null}>{dictionary[this.props.language].header.contacts}</Link>
+                                <NavLink to="/contacts" activeClassName='active'>{dictionary[this.props.language].header.contacts}</NavLink>
                             </li>
                         </ul>
                         <div className={`flag ${this.props.language}`} onClick={this.props.changeLanguage((this.props.language === 'ru') ? 'en' : 'ru')} />
@@ -54,14 +74,14 @@ class Header extends Component {
                         <div className="autorPhotoBlock">
                             <div className="row">
                                 <div className="autorPhotoBlockLimit">
-                                    <div className="likeField" onClick={this.props.setLike(this.props.countOfLike + 1)}>
+                                    <div className="likeField" onClick={clickLike}>
                                         <div className="likePush">
                                             <img src="/src/assets/img/likeWhite.svg" alt="" className="thumbsUpOnImg" />
                                         </div>
                                         <img className="profilePhoto" src="/src/assets/img/my_photo.jpg" alt="" />
                                     </div>
                                     <div className="likesBlock">
-                                        <img src="/src/assets/img/likeWhite.svg" alt="" className="thumbsUp" onClick={this.props.setLike(this.props.countOfLike + 1)} />
+                                        <img src="/src/assets/img/likeWhite.svg" alt="" className="thumbsUp" onClick={clickLike} />
                                         <span className="countOfLikes">{this.props.countOfLike}</span>
                                     </div>
                                 </div>

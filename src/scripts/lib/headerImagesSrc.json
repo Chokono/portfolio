@@ -1,0 +1,37 @@
+{
+	"homePage": {
+		"1920": "/src/assets/img/keyboard.png",
+		"1200": "/src/assets/img/keyboard1200.png",
+		"750": "/src/assets/img/keyboard500.png"
+	},
+	"technologyPage": {
+		"1920": "/src/assets/img/steak.png",
+		"1200": "/src/assets/img/steak1200.png",
+		"750": "/src/assets/img/steak500.png"
+	},
+	"contactPage": {
+		"1920": "/src/assets/img/contacts.png",
+		"1200": "/src/assets/img/contacts1200.png",
+		"750": "/src/assets/img/contacts500.png"
+	},
+	"interestingPage": {
+		"1920": "/src/assets/img/hobby.png",
+		"1200": "/src/assets/img/hobby1200.png",
+		"750": "/src/assets/img/hobby500.png"
+	},
+	"literaturePage": {
+		"1920": "/src/assets/img/literature.png",
+		"1200": "/src/assets/img/literature1200.png",
+		"750": "/src/assets/img/literature500.png"
+	},
+	"sportPage": {
+		"1920": "/src/assets/img/sport.png",
+		"1200": "/src/assets/img/sport1200.png",
+		"750": "/src/assets/img/sport500.png"
+	},
+	"gamesPage": {
+		"1920": "/src/assets/img/games.png",
+		"1200": "/src/assets/img/games1200.png",
+		"750": "/src/assets/img/games500.png"
+	}
+}

@@ -30,8 +30,45 @@ $backgroundMenu: black;
     width: 100%;
     overflow: hidden;
     background-color: #111;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    transition: 0.5s;
     @media (max-width: 749px) {
         height: 200px;
+    }
+    .smallHeaderImage {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-repeat: no-repeat;
+        background-image: url(./img/spriteHeader.png);
+         @media (max-width: 1400px) {
+            background-image: url(./img/spriteHeader1200.png);
+        }
+        @media (max-width: 750px) {
+            background-image: url(./img/spriteHeader500.jpg);
+        }
+    }
+    .headerImageContainer {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
     .headerBlock {
         position: absolute;
@@ -39,6 +76,7 @@ $backgroundMenu: black;
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: 2;
         .autorPhotoBlock {
             position: absolute;
             right: 0px;
@@ -212,6 +250,10 @@ $backgroundMenu: black;
         }
     }
 }
+.headerBlur {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+}
 .autorPhotoBlockLimit {
     width: 50%;
     max-width: 250px;
@@ -267,128 +309,127 @@ $backgroundMenu: black;
 
 .homePage {
     background-image: url(./img/keyboard.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 430px;
     @media (max-width: 1400px) {
         background-image: url(./img/keyboard1200.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/keyboard500.png);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }
 .technologyPage {
     background-image: url(./img/steak.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (max-width: 1400px) {
         background-image: url(./img/steak1200.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/steak500.png);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }
 .contactPage {
     background-image: url(./img/contacts.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (max-width: 1400px) {
         background-image: url(./img/contacts1200.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/contacts500.png);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }
 .interestingPage {
     background-image: url(./img/hobby.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (max-width: 1400px) {
         background-image: url(./img/hobby1200.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/hobby500.jpg);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }
 .literaturePage {
     background-image: url(./img/literature.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (max-width: 1400px) {
         background-image: url(./img/literature1200.jpg);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/literature500.jpg);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }
 .sportPage {
     background-image: url(./img/sport.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (max-width: 1400px) {
         background-image: url(./img/sport1200.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/sport500.png);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }
 .gamesPage {
     background-image: url(./img/games.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     @media (max-width: 1400px) {
         background-image: url(./img/games1200.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
     @media (max-width: 750px) {
         background-image: url(./img/games500.png);
+    }
+    .smallHeaderImage {
         background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        @media (max-width: 1400px) {
+            background-position: center;
+        }
+        @media (max-width: 750px) {
+            background-position: center;
+        }
     }
 }

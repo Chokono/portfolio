@@ -23,9 +23,8 @@ const HomeComp = ({
     : isEmpty(countOfLike)
 		? 0
 		: Object.keys(countOfLike).map((key, id) => (countOfLike[key]))[0];
-	const setLike = (val) => () => {
-        firebase.set('like', {like: val})
-		return;
+	const setLike = (val) => {
+        firebase.set('like', {like: val + 1});
 	}
     return(
         <>
