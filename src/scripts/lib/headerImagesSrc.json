@@ -15,9 +15,9 @@
 		"750": "/src/assets/img/contacts500.png"
 	},
 	"interestingPage": {
-		"1920": "/src/assets/img/hobby.png",
-		"1200": "/src/assets/img/hobby1200.png",
-		"750": "/src/assets/img/hobby500.png"
+		"1920": "/src/assets/img/hobby.jpg",
+		"1200": "/src/assets/img/hobby1200.jpg",
+		"750": "/src/assets/img/hobby500.jpg"
 	},
 	"literaturePage": {
 		"1920": "/src/assets/img/literature.png",
