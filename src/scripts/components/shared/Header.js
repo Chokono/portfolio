@@ -25,13 +25,14 @@ class Header extends Component {
         this.setState({isHeaderImageLoading: false});
     }
     componentDidMount(){
-        this.props.showMenuReset(false);
+        this.props.showMenuReset(true)();
     };
     render() {
         return (
             <>
-                <header className={cx('header', this.props.imageClassName)}>
-                    {this.state.isHeaderImageLoading && <div className="smallHeaderImage"></div>}
+                <header className={cx("header", this.props.imageClassName)}>
+                    <div className={cx('headerImBlock', this.props.imageClassName, {['headerBlur']: this.state.isHeaderImageLoading})}></div>
+                    {this.state.isHeaderImageLoading && <div className="smallHeaderImage headerBlur"></div>}
                     <picture className='headerImageContainer'>
                         <source media="(max-width: 750px)" srcSet={headerImagesSrc[this.props.imageClassName][750]} />
                         <source media="(max-width: 1200px)" srcSet={headerImagesSrc[this.props.imageClassName][1200]} />
@@ -42,34 +43,35 @@ class Header extends Component {
                             <div className="menuTrigger" onClick={this.props.onMenuTriggerClick(this.props.menuTriggerStatus)}>
                                 <img src={this.props.menuTriggerStatus ? '/src/assets/img/cancel-music.svg' : '/src/assets/img/menu.svg'} alt="" className="menuSvg" />
                             </div>
-                            <div className={`closeMenu ${this.props.menuTriggerClassName}`} onClick={this.props.onMenuTriggerClick(this.props.menuTriggerStatus)} />
                         </MediaQuery>
                         <div className="row">
-                            <ul className={`menu ${this.props.menuTriggerClassName}`}>
-                                <li className="menuLi">
-                                    <Link to="/" className={cx({['active']:'/' === this.props.path})}>{dictionary[this.props.language].header.main}</Link>
-                                </li>
-                                <li className="menuLi">
-                                    <NavLink to="/technology" activeClassName='active'>{dictionary[this.props.language].header.technology}</NavLink>
-                                </li>
-                                <li className="menuLi">
-                                    <NavLink to="/interesting" activeClassName='active'>{dictionary[this.props.language].header.hobby}</NavLink>
-                                    <ul className="subMenu">
-                                        <li className="menuLi subMenuLi">
-                                            <NavLink to="/interesting/literature" activeClassName='active'>{dictionary[this.props.language].header.literature}</NavLink>
-                                        </li>
-                                        <li className="menuLi subMenuLi">
-                                            <NavLink to="/interesting/sport" activeClassName='active'>{dictionary[this.props.language].header.sport}</NavLink>
-                                        </li>
-                                        <li className="menuLi subMenuLi">
-                                            <NavLink to="/interesting/games" activeClassName='active'>{dictionary[this.props.language].header.games}</NavLink>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li className="menuLi">
-                                    <NavLink to="/contacts" activeClassName='active'>{dictionary[this.props.language].header.contacts}</NavLink>
-                                </li>
-                            </ul>
+                            {!this.props.menuTriggerStatus && (
+                                <ul className={`menu ${this.props.menuTriggerClassName}`}>
+                                    <li className="menuLi">
+                                        <Link to="/" className={cx({['active']:'/' === this.props.path})}>{dictionary[this.props.language].header.main}</Link>
+                                    </li>
+                                    <li className="menuLi">
+                                        <NavLink to="/technology" activeClassName='active'>{dictionary[this.props.language].header.technology}</NavLink>
+                                    </li>
+                                    <li className="menuLi">
+                                        <NavLink to="/interesting" activeClassName='active'>{dictionary[this.props.language].header.hobby}</NavLink>
+                                        <ul className="subMenu">
+                                            <li className="menuLi subMenuLi">
+                                                <NavLink to="/interesting/literature" activeClassName='active'>{dictionary[this.props.language].header.literature}</NavLink>
+                                            </li>
+                                            <li className="menuLi subMenuLi">
+                                                <NavLink to="/interesting/sport" activeClassName='active'>{dictionary[this.props.language].header.sport}</NavLink>
+                                            </li>
+                                            <li className="menuLi subMenuLi">
+                                                <NavLink to="/interesting/games" activeClassName='active'>{dictionary[this.props.language].header.games}</NavLink>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="menuLi">
+                                        <NavLink to="/contacts" activeClassName='active'>{dictionary[this.props.language].header.contacts}</NavLink>
+                                    </li>
+                                </ul>
+                            )}
                             <div className={`flag ${this.props.language}`} onClick={this.props.changeLanguage((this.props.language === 'ru') ? 'en' : 'ru')} />
                         </div>
                         {('/' === this.props.path) ? (
@@ -93,36 +95,36 @@ class Header extends Component {
                         <div className="headerTitle"><div className="row"><h1 className="headerTitleH1">{dictionary[this.props.language].header[this.props.title+'Title']}</h1></div></div>
                     </div>
                 </header>
+                <MediaQuery query="(max-width: 749px)">
+                    <div className={`closeMenu ${this.props.menuTriggerClassName}`} onClick={this.props.onMenuTriggerClick(this.props.menuTriggerStatus)} />
+                </MediaQuery>
                 {this.props.menuTriggerStatus && (
-                    <>
-                        <ul className={`menu ${this.props.menuTriggerClassName}`}>
-                            <li className="menuLi">
-                                <Link to="/" className={cx({['active']:'/' === this.props.path})}>{dictionary[this.props.language].header.main}</Link>
-                            </li>
-                            <li className="menuLi">
-                                <NavLink to="/technology" activeClassName='active'>{dictionary[this.props.language].header.technology}</NavLink>
-                            </li>
-                            <li className="menuLi">
-                                <NavLink to="/interesting" activeClassName='active'>{dictionary[this.props.language].header.hobby}</NavLink>
-                                <ul className="subMenu">
-                                    <li className="menuLi subMenuLi">
-                                        <NavLink to="/interesting/literature" activeClassName='active'>{dictionary[this.props.language].header.literature}</NavLink>
-                                    </li>
-                                    <li className="menuLi subMenuLi">
-                                        <NavLink to="/interesting/sport" activeClassName='active'>{dictionary[this.props.language].header.sport}</NavLink>
-                                    </li>
-                                    <li className="menuLi subMenuLi">
-                                        <NavLink to="/interesting/games" activeClassName='active'>{dictionary[this.props.language].header.games}</NavLink>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="menuLi">
-                                <NavLink to="/contacts" activeClassName='active'>{dictionary[this.props.language].header.contacts}</NavLink>
-                            </li>
-                        </ul>
-                        <div className={`flag ${this.props.language}`} onClick={this.props.changeLanguage((this.props.language === 'ru') ? 'en' : 'ru')} />
-                    </>
-                )
+                    <ul className={`menu ${this.props.menuTriggerClassName}`}>
+                        <li className="menuLi">
+                            <Link to="/" className={cx({['active']:'/' === this.props.path})}>{dictionary[this.props.language].header.main}</Link>
+                        </li>
+                        <li className="menuLi">
+                            <NavLink to="/technology" activeClassName='active'>{dictionary[this.props.language].header.technology}</NavLink>
+                        </li>
+                        <li className="menuLi">
+                            <NavLink to="/interesting" activeClassName='active'>{dictionary[this.props.language].header.hobby}</NavLink>
+                            <ul className="subMenu">
+                                <li className="menuLi subMenuLi">
+                                    <NavLink to="/interesting/literature" activeClassName='active'>{dictionary[this.props.language].header.literature}</NavLink>
+                                </li>
+                                <li className="menuLi subMenuLi">
+                                    <NavLink to="/interesting/sport" activeClassName='active'>{dictionary[this.props.language].header.sport}</NavLink>
+                                </li>
+                                <li className="menuLi subMenuLi">
+                                    <NavLink to="/interesting/games" activeClassName='active'>{dictionary[this.props.language].header.games}</NavLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="menuLi">
+                            <NavLink to="/contacts" activeClassName='active'>{dictionary[this.props.language].header.contacts}</NavLink>
+                        </li>
+                    </ul>
+                )}
             </>
         )
     }

@@ -36,8 +36,25 @@ $backgroundMenu: black;
     -webkit-filter: blur(0);
     transition: 0.5s;
     z-index: 1;
+    overflow: hidden;
+    box-sizing: border-box;
     @media (max-width: 749px) {
         height: 200px;
+    }
+    .headerImBlock {
+        display: block;
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top:0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(0px);
+        -webkit-filter: blur(0px);
+        transition: 0.5s;
     }
     .smallHeaderImage {
         display: block;
@@ -48,15 +65,8 @@ $backgroundMenu: black;
         height: 100%;
         z-index: 1;
         background-repeat: no-repeat;
-        background-size: auto 713%;
-        background-image: url(./img/spriteHeader.jpg);
-         @media (max-width: 1400px) {
-            background-image: url(./img/spriteHeader1200.jpg);
-        }
-        @media (max-width: 750px) {
-            background-size: auto 850%;
-            background-image: url(./img/spriteHeader500.jpg);
-        }
+        background-size: cover;
+        background-position: center;
     }
     .headerImageContainer {
         display: block;
@@ -68,6 +78,31 @@ $backgroundMenu: black;
         z-index: -1;
         overflow: hidden;
         opacity: 0;
+        background-image: url(./img/keyboardSmall.png),
+        url(./img/steakSmall.png),
+        url(./img/contactsSmall.png),
+        url(./img/hobbySmall.jpg),
+        url(./img/literatureSmall.jpg),
+        url(./img/sportSmall.png),
+        url(./img/gamesSmall.png);
+        @media (max-width: 1400px) {
+            background-image: url(./img/keyboardSmall1200.png),
+            url(./img/steakSmall1200.png),
+            url(./img/contactsSmall1200.png),
+            url(./img/hobbySmall1200.jpg),
+            url(./img/literatureSmall1200.jpg),
+            url(./img/sportSmall1200.png),
+            url(./img/gamesSmall1200.png);
+        }
+        @media (max-width: 750px) {
+            background-image: url(./img/keyboardSmall500.png),
+            url(./img/steakSmall500.png),
+            url(./img/contactsSmall500.png),
+            url(./img/hobbySmall500.jpg),
+            url(./img/literatureSmall500.jpg),
+            url(./img/sportSmall500.png),
+            url(./img/gamesSmall500.png);
+        }
         img {
             width: 100%;
             height: auto;
@@ -91,104 +126,6 @@ $backgroundMenu: black;
                 bottom: 50%;
                 text-align: center;
                 transform:translateY(50%);
-            }
-        }
-        .menu {
-            display: inline-block;
-            line-height: 30px;
-            @media (max-width: 749px) {
-                display: block;
-                position: fixed;
-                right: 0;
-                transition: 0.3s;
-                transform: translateX(100%);
-                height: 100vh;
-                background-color: $backgroundMenu;
-                width: 150px;
-                text-align: center;
-                z-index: 20;
-            }
-            .menuLi {
-                display: inline-block;
-                padding: 10px 20px;
-                position: relative;
-                @media (max-width: 749px) {
-                    display: block;
-                    border-top: 1px solid #777;
-                }
-                &:hover {
-                    .subMenu {
-                        opacity: 1;
-                        display: block;
-                    }
-                }
-                a {
-                    text-decoration: none;
-                    color: $linkCol;
-                    line-height: 30px;
-                    vertical-align: middle;
-                    &:hover {
-                        color: $linkHov;
-                        text-decoration: underline;
-                        background-color: $linkBackgroundHov;
-                    }
-                }
-                .active {
-                	color: $linkColActive;
-                }
-                .subMenu {
-                    display: none;
-                    position: absolute;
-                    top: 100%;
-                    right: 0%;
-                    transition: 0.3s;
-                    opacity: 0;
-                    background-color: $backgroundMenu;
-                    z-index: 10;
-                    @media (max-width: 749px) {
-                        opacity: 1;
-                        position: static;
-                        display: block;
-                        background-color: transparent;
-                        border-top: 1px solid #777;
-                        width: calc(100% + 40px);
-                        text-align: center;
-                        margin-top: 10px;
-                        margin-left: -20px;
-                    }
-                    .subMenuLi {
-                        display: block;
-                        width: 110px;
-                        border: none;
-                        @media (max-width: 749px) {
-                           width: 100%;
-                           box-sizing: border-box; 
-                        }
-                        // border: 1px solid $linkBorder;
-                        // background-color: $linkBackground;
-                        &:hover {
-                            // border: 1px solid $linkBorderHov;
-                        }
-                    }
-                }
-            }
-        }
-        .menu.open {
-            transform: none;
-        }
-        .menuTrigger {
-            position: absolute;
-            top: 20px;
-            right: 65px;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(255,255,255,0.8);
-            text-align: center;
-            border-radius: 50%;
-            .menuSvg {
-                display: inline-block;
-                height: 15px;
-                margin-top: 7px;
             }
         }
         .flag {
@@ -233,23 +170,127 @@ $backgroundMenu: black;
                     font-size: 54px;
                 }
                 @media (max-width: 749px) {
-                    font-size: 38px;
+                    font-size: 21px;
+                    width: 70%;
                 }
             }
         }
-        .closeMenu {
+    }
+}
+
+
+.closeMenu {
+    transition: 0.3s;
+    position: fixed;
+    width: calc(100% - 150px);
+    left: -100%;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+}
+.closeMenu.open {
+    opasity: 1;
+    left: 0;
+}
+
+.menu {
+    display: inline-block;
+    line-height: 30px;
+    @media (max-width: 749px) {
+        display: block;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition: 0.3s;
+        transform: translateX(100%);
+        height: 100vh;
+        background-color: $backgroundMenu;
+        width: 150px;
+        text-align: center;
+        z-index: 20;
+    }
+    .menuLi {
+        display: inline-block;
+        padding: 10px 20px;
+        position: relative;
+        @media (max-width: 749px) {
+            display: block;
+            border-top: 1px solid #777;
+        }
+        &:hover {
+            .subMenu {
+                opacity: 1;
+                display: block;
+            }
+        }
+        a {
+            text-decoration: none;
+            color: $linkCol;
+            line-height: 30px;
+            vertical-align: middle;
+            &:hover {
+                color: $linkHov;
+                text-decoration: underline;
+                background-color: $linkBackgroundHov;
+            }
+        }
+        .active {
+            color: $linkColActive;
+        }
+        .subMenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0%;
             transition: 0.3s;
-            position: fixed;
-            width: calc(100% - 150px);
-            left: -100%;
-            top: 0;
-            height: 100%;
+            opacity: 0;
+            background-color: $backgroundMenu;
             z-index: 10;
+            @media (max-width: 749px) {
+                opacity: 1;
+                position: static;
+                display: block;
+                background-color: transparent;
+                border-top: 1px solid #777;
+                width: calc(100% + 40px);
+                text-align: center;
+                margin-top: 10px;
+                margin-left: -20px;
+            }
+            .subMenuLi {
+                display: block;
+                width: 110px;
+                border: none;
+                @media (max-width: 749px) {
+                   width: 100%;
+                   box-sizing: border-box; 
+                }
+                // border: 1px solid $linkBorder;
+                // background-color: $linkBackground;
+                &:hover {
+                    // border: 1px solid $linkBorderHov;
+                }
+            }
         }
-        .closeMenu.open {
-            opasity: 1;
-            left: 0;
-        }
+    }
+}
+
+.menu.open {
+    transform: none;
+}
+.menuTrigger {
+    position: absolute;
+    top: 20px;
+    right: 65px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    border-radius: 50%;
+    .menuSvg {
+        display: inline-block;
+        height: 15px;
+        margin-top: 7px;
     }
 }
 .headerBlur {
@@ -319,9 +360,12 @@ $backgroundMenu: black;
         background-image: url(./img/keyboard500.png);
     }
     .smallHeaderImage {
-        background-position: center -1440px;
+        background-image: url(./img/keyboardSmall.png);
+        @media (max-width: 1400px) {
+            background-image: url(./img/keyboardSmall1200.png);
+        }
         @media (max-width: 750px) {
-            background-position: center -1420px;
+            background-image: url(./img/keyboardSmall500.png);
         }
     }
 }
@@ -334,7 +378,13 @@ $backgroundMenu: black;
         background-image: url(./img/steak500.png);
     }
     .smallHeaderImage {
-        background-position: center bottom;
+        background-image: url(./img/steakSmall.png);
+        @media (max-width: 1400px) {
+            background-image: url(./img/steakSmall1200.png);
+        }
+        @media (max-width: 750px) {
+            background-image: url(./img/steakSmall500.png);
+        }
     }
 }
 .contactPage {
@@ -346,7 +396,13 @@ $backgroundMenu: black;
         background-image: url(./img/contacts500.png);
     }
     .smallHeaderImage {
-        background-position: center top;
+        background-image: url(./img/contactsSmall.png);
+        @media (max-width: 1400px) {
+            background-image: url(./img/contactsSmall1200.png);
+        }
+        @media (max-width: 750px) {
+            background-image: url(./img/contactsSmall500.png);
+        }
     }
 }
 .interestingPage {
@@ -358,9 +414,12 @@ $backgroundMenu: black;
         background-image: url(./img/hobby500.jpg);
     }
     .smallHeaderImage {
-        background-position: center -1060px;
+        background-image: url(./img/hobbySmall.jpg);
+        @media (max-width: 1400px) {
+            background-image: url(./img/hobbySmall1200.jpg);
+        }
         @media (max-width: 750px) {
-            background-position: center -440px;
+            background-image: url(./img/hobbySmall500.jpg);
         }
     }
 }
@@ -373,9 +432,12 @@ $backgroundMenu: black;
         background-image: url(./img/literature500.jpg);
     }
     .smallHeaderImage {
-        background-position: center -2140px;
+        background-image: url(./img/literatureSmall.jpg);
+        @media (max-width: 1400px) {
+            background-image: url(./img/literatureSmall1200.jpg);
+        }
         @media (max-width: 750px) {
-            background-position: center -1210px;
+            background-image: url(./img/literatureSmall500.jpg);
         }
     }
 }
@@ -388,9 +450,12 @@ $backgroundMenu: black;
         background-image: url(./img/sport500.png);
     }
     .smallHeaderImage {
-        background-position: center -2660px;
+        background-image: url(./img/sportSmall.png);
+        @media (max-width: 1400px) {
+            background-image: url(./img/sportSmall1200.png);
+        }
         @media (max-width: 750px) {
-            background-position: center -1430px;
+            background-image: url(./img/sportSmall500.png);
         }
     }
 }
@@ -403,9 +468,12 @@ $backgroundMenu: black;
         background-image: url(./img/games500.png);
     }
     .smallHeaderImage {
-        background-position: center -525px;
+        background-image: url(./img/gamesSmall.png);
+        @media (max-width: 1400px) {
+            background-image: url(./img/gamesSmall1200.png);
+        }
         @media (max-width: 750px) {
-            background-position: center -220px;
+            background-image: url(./img/gamesSmall500.png);
         }
     }
 }
