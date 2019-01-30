@@ -31,7 +31,7 @@ $backgroundMenu: black;
     background-color: #111;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% auto;
     filter: blur(0);
     -webkit-filter: blur(0);
     transition: 0.5s;
@@ -54,7 +54,12 @@ $backgroundMenu: black;
         background-size: cover;
         filter: blur(0px);
         -webkit-filter: blur(0px);
-        transition: 0.5s;
+        transition: filter ease 0.5s;
+    }
+
+    .headerBlur {
+        filter: blur(10px);
+        -webkit-filter: blur(10px);
     }
     .smallHeaderImage {
         display: block;
@@ -292,10 +297,6 @@ $backgroundMenu: black;
         height: 15px;
         margin-top: 7px;
     }
-}
-.headerBlur {
-    filter: blur(10px);
-    -webkit-filter: blur(10px);
 }
 .autorPhotoBlockLimit {
     width: 50%;

@@ -22,7 +22,10 @@ class Header extends Component {
         }
     }
     imageLoad() {
-        this.setState({isHeaderImageLoading: false});
+        setTimeout( () =>{
+            this.setState({isHeaderImageLoading: false});
+        }, 200);
+
     }
     componentDidMount(){
         this.props.showMenuReset(true)();
@@ -31,7 +34,7 @@ class Header extends Component {
         return (
             <>
                 <header className={cx("header", this.props.imageClassName)}>
-                    <div className={cx('headerImBlock', this.props.imageClassName, {['headerBlur']: this.state.isHeaderImageLoading})}></div>
+                    <div className={cx('headerImBlock', this.props.imageClassName, {'headerBlur': this.state.isHeaderImageLoading})}></div>
                     {this.state.isHeaderImageLoading && <div className="smallHeaderImage headerBlur"></div>}
                     <picture className='headerImageContainer'>
                         <source media="(max-width: 750px)" srcSet={headerImagesSrc[this.props.imageClassName][750]} />
