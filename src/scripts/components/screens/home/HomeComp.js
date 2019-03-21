@@ -43,7 +43,7 @@ const HomeComp = ({
                         <section id="AET">
                             <h3 className="homeSectionH3">AET Groupe</h3>
                             <p>{dictionary[language].main.aetDescription}</p>
-                            {/*<p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.aetPeriod}</p>*/}
+                            <p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.aetPeriod}</p>
                             <p>{dictionary[language].main.learn}</p>
                             <ul className="technologyList">
                                 <li>HTML5</li>
@@ -58,7 +58,7 @@ const HomeComp = ({
                         <section id="Webmatrix">
                             <h3 className="homeSectionH3">Webmatrix</h3>
                             <p>{dictionary[language].main.webmatrixDescription}</p>
-                            {/*<p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.webmatrixPeriod}</p>*/}
+                            <p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.webmatrixPeriod}</p>
                             <p>{dictionary[language].main.learn}</p>
                             <ul className="technologyList">
                                 <li>MYSQL</li>
@@ -71,25 +71,26 @@ const HomeComp = ({
                         <section id="LTD">
                             <h3 className="homeSectionH3">Business Solution LTD</h3>
                             <p>{dictionary[language].main.ltd}</p>
-                            {/*<p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.ltdPeriod}</p>*/}
+                            <p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.ltdPeriod}</p>
                             <p>{dictionary[language].main.learn}</p>
                             <ul className="technologyList">
                                 <li>Laravel</li>
                                 <li>WordPress</li>
-                                <li>PHP</li>
+                                <li>Angular 2</li>
                             </ul>
                         </section>
                         <hr />
                         <section id="Software">
                             <h3 className="homeSectionH3">Software Business Technology</h3>
                             <p>{dictionary[language].main.software}</p>
-                            {/*<p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.softwarePeriod}</p>*/}
+                            <p>{dictionary[language].main.workPeriodLabel+dictionary[language].main.softwarePeriod}</p>
                             <p>{dictionary[language].main.learn}</p>
                             <ul className="technologyList">
                                 <li>React JS</li>
                                 <li>Node JS</li>
                                 <li>Redux JS</li>
                                 <li>MongoDB</li>
+                                <li>Ember JS</li>
                             </ul>
                         </section>
                     </div>
