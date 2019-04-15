@@ -2,479 +2,468 @@ $color: #fff;
 $linkCol: #e7ece3;
 $linkHov: #d3e47b;
 $linkColActive: #e1d33e;
-$linkBackground: rgba(50,50,50,0.1);
-$linkBackgroundHov: rgba(50,50,50,0.1);
+$linkBackground: rgba(50, 50, 50, 0.1);
+$linkBackgroundHov: rgba(50, 50, 50, 0.1);
 $linkBorder: red;
 $linkBorderHov: red;
 $backgroundMenu: black;
 
 .container {
-    margin: 0 -15px;
+  margin: 0 -15px;
 }
 
 .imageBank {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    opacity: 0;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
 }
 
 .header {
-    text-align: right;
-    padding: 10px 0;
-    position: relative;
-    height: 500px;
-    width: 100%;
-    background-color: #111;
+  text-align: right;
+  padding: 10px 0;
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background-color: #111;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  filter: blur(0);
+  -webkit-filter: blur(0);
+  transition: 0.5s;
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  @media (max-width: 749px) {
+    height: 200px;
+  }
+  .headerImBlock {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% auto;
-    filter: blur(0);
-    -webkit-filter: blur(0);
-    transition: 0.5s;
+    background-size: cover;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    transition: filter ease 0.5s;
+  }
+
+  .headerBlur {
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+  }
+  .smallHeaderImage {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .headerImageContainer {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
     overflow: hidden;
-    box-sizing: border-box;
-    @media (max-width: 749px) {
-        height: 200px;
+    opacity: 0;
+    background-image: url(./img/keyboardSmall.png), url(./img/steakSmall.png),
+      url(./img/contactsSmall.png), url(./img/hobbySmall.jpg), url(./img/literatureSmall.jpg),
+      url(./img/sportSmall.png), url(./img/gamesSmall.png);
+    @media (max-width: 1400px) {
+      background-image: url(./img/keyboardSmall1200.png), url(./img/steakSmall1200.png),
+        url(./img/contactsSmall1200.png), url(./img/hobbySmall1200.jpg),
+        url(./img/literatureSmall1200.jpg), url(./img/sportSmall1200.png),
+        url(./img/gamesSmall1200.png);
     }
-    .headerImBlock {
+    @media (max-width: 750px) {
+      background-image: url(./img/keyboardSmall500.png), url(./img/steakSmall500.png),
+        url(./img/contactsSmall500.png), url(./img/hobbySmall500.jpg),
+        url(./img/literatureSmall500.jpg), url(./img/sportSmall500.png),
+        url(./img/gamesSmall500.png);
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .headerBlock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    .autorPhotoBlock {
+      position: absolute;
+      right: 0px;
+      bottom: 30px;
+      width: 100%;
+      z-index: 1;
+      text-align: right;
+      @media (max-width: 749px) {
+        bottom: 50%;
+        text-align: center;
+        transform: translateY(50%);
+      }
+    }
+    .flag {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      line-height: 52px;
+      vertical-align: middle;
+      &:hover {
+        cursor: pointer;
+      }
+      @media (max-width: 750px) {
+        margin-top: 20px;
+      }
+    }
+    .ru {
+      background-image: url(./img/russia.jpeg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .en {
+      background-image: url(./img/England.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .headerTitle {
+      position: absolute;
+      left: 0px;
+      bottom: 30px;
+      text-align: left;
+      z-index: 0;
+      width: 100%;
+      .headerTitleH1 {
+        color: $linkCol;
+        font-size: 4em;
         display: block;
-        position: absolute;
-        z-index: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top:0;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        filter: blur(0px);
-        -webkit-filter: blur(0px);
-        transition: filter ease 0.5s;
-    }
-
-    .headerBlur {
-        filter: blur(10px);
-        -webkit-filter: blur(10px);
-    }
-    .smallHeaderImage {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 100%;
-        z-index: 1;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        @media (max-width: 1200px) {
+          font-size: 54px;
+        }
+        @media (max-width: 749px) {
+          font-size: 21px;
+          width: 70%;
+        }
+      }
     }
-    .headerImageContainer {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        overflow: hidden;
-        opacity: 0;
-        background-image: url(./img/keyboardSmall.png),
-        url(./img/steakSmall.png),
-        url(./img/contactsSmall.png),
-        url(./img/hobbySmall.jpg),
-        url(./img/literatureSmall.jpg),
-        url(./img/sportSmall.png),
-        url(./img/gamesSmall.png);
-        @media (max-width: 1400px) {
-            background-image: url(./img/keyboardSmall1200.png),
-            url(./img/steakSmall1200.png),
-            url(./img/contactsSmall1200.png),
-            url(./img/hobbySmall1200.jpg),
-            url(./img/literatureSmall1200.jpg),
-            url(./img/sportSmall1200.png),
-            url(./img/gamesSmall1200.png);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/keyboardSmall500.png),
-            url(./img/steakSmall500.png),
-            url(./img/contactsSmall500.png),
-            url(./img/hobbySmall500.jpg),
-            url(./img/literatureSmall500.jpg),
-            url(./img/sportSmall500.png),
-            url(./img/gamesSmall500.png);
-        }
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
-    .headerBlock {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-        .autorPhotoBlock {
-            position: absolute;
-            right: 0px;
-            bottom: 30px;
-            width: 100%;
-            z-index: 1;
-            text-align: right;
-            @media (max-width: 749px) {
-                bottom: 50%;
-                text-align: center;
-                transform:translateY(50%);
-            }
-        }
-        .flag {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            line-height: 52px;
-            vertical-align: middle;
-            &:hover {
-                cursor: pointer;
-            }
-            @media (max-width: 750px) {
-                margin-top: 20px;
-            }
-        }
-        .ru {
-            background-image: url(./img/russia.jpeg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .en {
-            background-image: url(./img/England.jpg);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        .headerTitle {
-            position: absolute;
-            left: 0px;
-            bottom: 30px;
-            text-align: left;
-            z-index: 0;
-            width: 100%;
-            .headerTitleH1 {
-                color: $linkCol;
-                font-size: 4em;
-                display: block;
-                width: 100%;
-                @media (max-width: 1200px) {
-                    font-size: 54px;
-                }
-                @media (max-width: 749px) {
-                    font-size: 21px;
-                    width: 70%;
-                }
-            }
-        }
-    }
+  }
 }
-
 
 .closeMenu {
-    transition: 0.3s;
-    position: fixed;
-    width: calc(100% - 150px);
-    left: -100%;
-    top: 0;
-    height: 100%;
-    z-index: 10;
+  transition: 0.3s;
+  position: fixed;
+  width: calc(100% - 150px);
+  left: -100%;
+  top: 0;
+  height: 100%;
+  z-index: 10;
 }
 .closeMenu.open {
-    opasity: 1;
-    left: 0;
+  opasity: 1;
+  left: 0;
 }
 
 .menu {
+  display: inline-block;
+  line-height: 30px;
+  @media (max-width: 749px) {
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: 0.3s;
+    transform: translateX(100%);
+    height: 100vh;
+    background-color: $backgroundMenu;
+    width: 150px;
+    text-align: center;
+    z-index: 20;
+  }
+  .menuLi {
     display: inline-block;
-    line-height: 30px;
+    padding: 10px 20px;
+    position: relative;
     @media (max-width: 749px) {
+      display: block;
+      border-top: 1px solid #777;
+    }
+    &:hover {
+      .subMenu {
+        opacity: 1;
         display: block;
-        position: fixed;
-        right: 0;
-        top: 0;
-        transition: 0.3s;
-        transform: translateX(100%);
-        height: 100vh;
-        background-color: $backgroundMenu;
-        width: 150px;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $linkCol;
+      line-height: 30px;
+      vertical-align: middle;
+      &:hover {
+        color: $linkHov;
+        text-decoration: underline;
+        background-color: $linkBackgroundHov;
+      }
+    }
+    .active {
+      color: $linkColActive;
+    }
+    .subMenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0%;
+      transition: 0.3s;
+      opacity: 0;
+      background-color: $backgroundMenu;
+      z-index: 10;
+      @media (max-width: 749px) {
+        opacity: 1;
+        position: static;
+        display: block;
+        background-color: transparent;
+        border-top: 1px solid #777;
+        width: calc(100% + 40px);
         text-align: center;
-        z-index: 20;
-    }
-    .menuLi {
-        display: inline-block;
-        padding: 10px 20px;
-        position: relative;
+        margin-top: 10px;
+        margin-left: -20px;
+      }
+      .subMenuLi {
+        display: block;
+        width: 110px;
+        border: none;
         @media (max-width: 749px) {
-            display: block;
-            border-top: 1px solid #777;
+          width: 100%;
+          box-sizing: border-box;
         }
+        // border: 1px solid $linkBorder;
+        // background-color: $linkBackground;
         &:hover {
-            .subMenu {
-                opacity: 1;
-                display: block;
-            }
+          // border: 1px solid $linkBorderHov;
         }
-        a {
-            text-decoration: none;
-            color: $linkCol;
-            line-height: 30px;
-            vertical-align: middle;
-            &:hover {
-                color: $linkHov;
-                text-decoration: underline;
-                background-color: $linkBackgroundHov;
-            }
-        }
-        .active {
-            color: $linkColActive;
-        }
-        .subMenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0%;
-            transition: 0.3s;
-            opacity: 0;
-            background-color: $backgroundMenu;
-            z-index: 10;
-            @media (max-width: 749px) {
-                opacity: 1;
-                position: static;
-                display: block;
-                background-color: transparent;
-                border-top: 1px solid #777;
-                width: calc(100% + 40px);
-                text-align: center;
-                margin-top: 10px;
-                margin-left: -20px;
-            }
-            .subMenuLi {
-                display: block;
-                width: 110px;
-                border: none;
-                @media (max-width: 749px) {
-                   width: 100%;
-                   box-sizing: border-box; 
-                }
-                // border: 1px solid $linkBorder;
-                // background-color: $linkBackground;
-                &:hover {
-                    // border: 1px solid $linkBorderHov;
-                }
-            }
-        }
+      }
     }
+  }
 }
 
 .menu.open {
-    transform: none;
+  transform: none;
 }
 .menuTrigger {
-    position: absolute;
-    top: 20px;
-    right: 65px;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(255,255,255,0.8);
-    text-align: center;
-    border-radius: 50%;
-    .menuSvg {
-        display: inline-block;
-        height: 15px;
-        margin-top: 7px;
-    }
+  position: absolute;
+  top: 20px;
+  right: 65px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  border-radius: 50%;
+  .menuSvg {
+    display: inline-block;
+    height: 15px;
+    margin-top: 7px;
+  }
 }
 .autorPhotoBlockLimit {
-    width: 50%;
-    max-width: 250px;
-    display: inline-block;
-    @media (max-width: 749px) {
-        width: 100%;
-    }
+  width: 50%;
+  max-width: 250px;
+  display: inline-block;
+  @media (max-width: 749px) {
+    width: 100%;
+  }
 }
 .likeField {
-    position: relative;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    .likePush {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        opacity: 0;
-        background-color: rgba(0,0,0,0.3);
-        transition: 0.3s;
-        cursor: pointer;
-        &:hover {
-            opacity: 1;
-        }
-        .thumbsUpOnImg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 30%;
-            display: block;
-            transform: translate(-50%,-50%);
-            cursor: pointer;
-        }
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  .likePush {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
     }
+    .thumbsUpOnImg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 30%;
+      display: block;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+    }
+  }
 }
 .profilePhoto {
-    width: 100%;
+  width: 100%;
 }
 .likesBlock {
-    text-align: center;
-    width: 100%;
-    .thumbsUp {
-        width: auto;
-        height: 1em;
-        cursor: pointer;
-    }
-    .countOfLikes {
-        color: white;
-    }
+  text-align: center;
+  width: 100%;
+  .thumbsUp {
+    width: auto;
+    height: 1em;
+    cursor: pointer;
+  }
+  .countOfLikes {
+    color: white;
+  }
 }
 
 .homePage {
-    height: 450px;
-    background-image: url(./img/keyboard.png);
+  height: 450px;
+  background-image: url(./img/keyboard.png);
+  @media (max-width: 1400px) {
+    background-image: url(./img/keyboard1200.png);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/keyboard500.png);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/keyboardSmall.png);
     @media (max-width: 1400px) {
-        background-image: url(./img/keyboard1200.png);
+      background-image: url(./img/keyboardSmall1200.png);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/keyboard500.png);
+      background-image: url(./img/keyboardSmall500.png);
     }
-    .smallHeaderImage {
-        background-image: url(./img/keyboardSmall.png);
-        @media (max-width: 1400px) {
-            background-image: url(./img/keyboardSmall1200.png);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/keyboardSmall500.png);
-        }
-    }
+  }
 }
 .technologyPage {
-    background-image: url(./img/steak.png);
+  background-image: url(./img/steak.png);
+  @media (max-width: 1400px) {
+    background-image: url(./img/steak1200.png);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/steak500.png);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/steakSmall.png);
     @media (max-width: 1400px) {
-        background-image: url(./img/steak1200.png);
+      background-image: url(./img/steakSmall1200.png);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/steak500.png);
+      background-image: url(./img/steakSmall500.png);
     }
-    .smallHeaderImage {
-        background-image: url(./img/steakSmall.png);
-        @media (max-width: 1400px) {
-            background-image: url(./img/steakSmall1200.png);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/steakSmall500.png);
-        }
-    }
+  }
 }
 .contactPage {
-    background-image: url(./img/contacts.png);
+  background-image: url(./img/contacts.png);
+  @media (max-width: 1400px) {
+    background-image: url(./img/contacts1200.png);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/contacts500.png);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/contactsSmall.png);
     @media (max-width: 1400px) {
-        background-image: url(./img/contacts1200.png);
+      background-image: url(./img/contactsSmall1200.png);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/contacts500.png);
+      background-image: url(./img/contactsSmall500.png);
     }
-    .smallHeaderImage {
-        background-image: url(./img/contactsSmall.png);
-        @media (max-width: 1400px) {
-            background-image: url(./img/contactsSmall1200.png);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/contactsSmall500.png);
-        }
-    }
+  }
 }
 .interestingPage {
-    background-image: url(./img/hobby.jpg);
+  background-image: url(./img/hobby.jpg);
+  @media (max-width: 1400px) {
+    background-image: url(./img/hobby1200.jpg);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/hobby500.jpg);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/hobbySmall.jpg);
     @media (max-width: 1400px) {
-        background-image: url(./img/hobby1200.jpg);
+      background-image: url(./img/hobbySmall1200.jpg);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/hobby500.jpg);
+      background-image: url(./img/hobbySmall500.jpg);
     }
-    .smallHeaderImage {
-        background-image: url(./img/hobbySmall.jpg);
-        @media (max-width: 1400px) {
-            background-image: url(./img/hobbySmall1200.jpg);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/hobbySmall500.jpg);
-        }
-    }
+  }
 }
 .literaturePage {
-    background-image: url(./img/literature.jpg);
+  background-image: url(./img/literature.jpg);
+  @media (max-width: 1400px) {
+    background-image: url(./img/literature1200.jpg);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/literature500.jpg);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/literatureSmall.jpg);
     @media (max-width: 1400px) {
-        background-image: url(./img/literature1200.jpg);
+      background-image: url(./img/literatureSmall1200.jpg);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/literature500.jpg);
+      background-image: url(./img/literatureSmall500.jpg);
     }
-    .smallHeaderImage {
-        background-image: url(./img/literatureSmall.jpg);
-        @media (max-width: 1400px) {
-            background-image: url(./img/literatureSmall1200.jpg);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/literatureSmall500.jpg);
-        }
-    }
+  }
 }
 .sportPage {
-    background-image: url(./img/sport.png);
+  background-image: url(./img/sport.png);
+  @media (max-width: 1400px) {
+    background-image: url(./img/sport1200.png);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/sport500.png);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/sportSmall.png);
     @media (max-width: 1400px) {
-        background-image: url(./img/sport1200.png);
+      background-image: url(./img/sportSmall1200.png);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/sport500.png);
+      background-image: url(./img/sportSmall500.png);
     }
-    .smallHeaderImage {
-        background-image: url(./img/sportSmall.png);
-        @media (max-width: 1400px) {
-            background-image: url(./img/sportSmall1200.png);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/sportSmall500.png);
-        }
-    }
+  }
 }
 .gamesPage {
-    background-image: url(./img/games.png);
+  background-image: url(./img/games.png);
+  @media (max-width: 1400px) {
+    background-image: url(./img/games1200.png);
+  }
+  @media (max-width: 750px) {
+    background-image: url(./img/games500.png);
+  }
+  .smallHeaderImage {
+    background-image: url(./img/gamesSmall.png);
     @media (max-width: 1400px) {
-        background-image: url(./img/games1200.png);
+      background-image: url(./img/gamesSmall1200.png);
     }
     @media (max-width: 750px) {
-        background-image: url(./img/games500.png);
+      background-image: url(./img/gamesSmall500.png);
     }
-    .smallHeaderImage {
-        background-image: url(./img/gamesSmall.png);
-        @media (max-width: 1400px) {
-            background-image: url(./img/gamesSmall1200.png);
-        }
-        @media (max-width: 750px) {
-            background-image: url(./img/gamesSmall500.png);
-        }
-    }
+  }
 }
