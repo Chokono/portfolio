@@ -1,214 +1,202 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import cx from 'classnames';
 import { connect } from 'react-redux';
 import MediaQuery from 'react-responsive';
+import { withTranslation } from 'react-i18next';
 
 const dictionary = require('lib/dictionary');
 const headerImagesSrc = require('lib/headerImagesSrc');
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHeaderImageLoading: true,
-    };
-    this.clickLike = this.clickLike.bind(this);
-    this.imageLoad = this.imageLoad.bind(this);
-  }
-  clickLike() {
-    if (this.props.countOfLike !== 'loading') {
-      this.props.setLike(this.props.countOfLike);
+const Header = ({
+  countOfLike,
+  setLike,
+  imageClassName,
+  title,
+  path,
+  menuTriggerClassName,
+  menuTriggerStatus,
+  language,
+  onMenuTriggerClick,
+  onShowMenuReset,
+  changeLanguage,
+}) => {
+  const [isHeaderImageLoading, setIsHeaderImageLoading] = useState(true);
+  const clickLike = useCallback(() => {
+    if (countOfLike !== 'loading') {
+      setLike(countOfLike);
     }
-  }
-  imageLoad() {
-    setTimeout(() => {
-      this.setState({ isHeaderImageLoading: false });
-    }, 200);
-  }
-  componentDidMount() {
-    this.props.showMenuReset(true)();
-  }
-  render() {
-    return (
-      <>
-        <header className={cx('header', this.props.imageClassName)}>
-          <div
-            className={cx('headerImBlock', this.props.imageClassName, {
-              headerBlur: this.state.isHeaderImageLoading,
-            })}
+  }, [countOfLike]);
+  useEffect(() => {
+    onShowMenuReset(true)();
+  }, []);
+  return (
+    <>
+      <header className={cx('header', imageClassName)}>
+        <div
+          className={cx('headerImBlock', imageClassName, {
+            headerBlur: isHeaderImageLoading,
+          })}
+        />
+        {isHeaderImageLoading && <div className="smallHeaderImage headerBlur" />}
+        <picture className="headerImageContainer">
+          <source media="(max-width: 750px)" srcSet={headerImagesSrc[imageClassName][750]} />
+          <source media="(max-width: 1200px)" srcSet={headerImagesSrc[imageClassName][1200]} />
+          <img
+            src={headerImagesSrc[imageClassName][1920]}
+            alt=""
+            onLoad={() => {
+              setTimeout(() => {
+                setIsHeaderImageLoading(false);
+              }, 200);
+            }}
           />
-          {this.state.isHeaderImageLoading && <div className="smallHeaderImage headerBlur" />}
-          <picture className="headerImageContainer">
-            <source
-              media="(max-width: 750px)"
-              srcSet={headerImagesSrc[this.props.imageClassName][750]}
-            />
-            <source
-              media="(max-width: 1200px)"
-              srcSet={headerImagesSrc[this.props.imageClassName][1200]}
-            />
-            <img
-              src={headerImagesSrc[this.props.imageClassName][1920]}
-              alt=""
-              onLoad={this.imageLoad}
-            />
-          </picture>
-          <div className="headerBlock">
-            <MediaQuery query="(max-width: 749px)">
-              <div
-                className="menuTrigger"
-                onClick={this.props.onMenuTriggerClick(this.props.menuTriggerStatus)}
-              >
-                <img
-                  src={
-                    this.props.menuTriggerStatus
-                      ? '/src/assets/img/cancel-music.svg'
-                      : '/src/assets/img/menu.svg'
-                  }
-                  alt=""
-                  className="menuSvg"
-                />
-              </div>
-            </MediaQuery>
-            <div className="row">
-              {!this.props.menuTriggerStatus && (
-                <ul className={`menu ${this.props.menuTriggerClassName}`}>
-                  <li className="menuLi">
-                    <Link to="/" className={cx({ ['active']: '/' === this.props.path })}>
-                      {dictionary[this.props.language].header.main}
-                    </Link>
-                  </li>
-                  <li className="menuLi">
-                    <NavLink to="/technology" activeClassName="active">
-                      {dictionary[this.props.language].header.technology}
-                    </NavLink>
-                  </li>
-                  <li className="menuLi">
-                    <NavLink to="/interesting" activeClassName="active">
-                      {dictionary[this.props.language].header.hobby}
-                    </NavLink>
-                    <ul className="subMenu">
-                      <li className="menuLi subMenuLi">
-                        <NavLink to="/interesting/literature" activeClassName="active">
-                          {dictionary[this.props.language].header.literature}
-                        </NavLink>
-                      </li>
-                      <li className="menuLi subMenuLi">
-                        <NavLink to="/interesting/sport" activeClassName="active">
-                          {dictionary[this.props.language].header.sport}
-                        </NavLink>
-                      </li>
-                      <li className="menuLi subMenuLi">
-                        <NavLink to="/interesting/games" activeClassName="active">
-                          {dictionary[this.props.language].header.games}
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="menuLi">
-                    <NavLink to="/contacts" activeClassName="active">
-                      {dictionary[this.props.language].header.contacts}
-                    </NavLink>
-                  </li>
-                </ul>
-              )}
-              <div
-                className={`flag ${this.props.language}`}
-                onClick={this.props.changeLanguage(this.props.language === 'ru' ? 'en' : 'ru')}
+        </picture>
+        <div className="headerBlock">
+          <MediaQuery query="(max-width: 749px)">
+            <div className="menuTrigger" onClick={onMenuTriggerClick(menuTriggerStatus)}>
+              <img
+                src={
+                  menuTriggerStatus
+                    ? '/src/assets/img/cancel-music.svg'
+                    : '/src/assets/img/menu.svg'
+                }
+                alt=""
+                className="menuSvg"
               />
             </div>
-            {'/' === this.props.path ? (
-              <div className="autorPhotoBlock">
-                <div className="row">
-                  <div className="autorPhotoBlockLimit">
-                    <div className="likeField" onClick={this.clickLike}>
-                      <div className="likePush">
-                        <img
-                          src="/src/assets/img/likeWhite.svg"
-                          alt=""
-                          className="thumbsUpOnImg"
-                        />
-                      </div>
-                      <img
-                        className="profilePhoto"
-                        src="/src/assets/img/my_photo.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="likesBlock">
-                      <img
-                        src="/src/assets/img/likeWhite.svg"
-                        alt=""
-                        className="thumbsUp"
-                        onClick={this.clickLike}
-                      />
-                      <span className="countOfLikes">{this.props.countOfLike}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-            <div className="headerTitle">
-              <div className="row">
-                <h1 className="headerTitleH1">
-                  {dictionary[this.props.language].header[this.props.title + 'Title']}
-                </h1>
-              </div>
-            </div>
-          </div>
-        </header>
-        <MediaQuery query="(max-width: 749px)">
-          <div
-            className={`closeMenu ${this.props.menuTriggerClassName}`}
-            onClick={this.props.onMenuTriggerClick(this.props.menuTriggerStatus)}
-          />
-        </MediaQuery>
-        {this.props.menuTriggerStatus && (
-          <ul className={`menu ${this.props.menuTriggerClassName}`}>
-            <li className="menuLi">
-              <Link to="/" className={cx({ ['active']: '/' === this.props.path })}>
-                {dictionary[this.props.language].header.main}
-              </Link>
-            </li>
-            <li className="menuLi">
-              <NavLink to="/technology" activeClassName="active">
-                {dictionary[this.props.language].header.technology}
-              </NavLink>
-            </li>
-            <li className="menuLi">
-              <NavLink to="/interesting" activeClassName="active">
-                {dictionary[this.props.language].header.hobby}
-              </NavLink>
-              <ul className="subMenu">
-                <li className="menuLi subMenuLi">
-                  <NavLink to="/interesting/literature" activeClassName="active">
-                    {dictionary[this.props.language].header.literature}
+          </MediaQuery>
+          <div className="row">
+            {!menuTriggerStatus && (
+              <ul className={`menu ${menuTriggerClassName}`}>
+                <li className="menuLi">
+                  <Link to="/" className={cx({ ['active']: '/' === path })}>
+                    {dictionary[language].header.main}
+                  </Link>
+                </li>
+                <li className="menuLi">
+                  <NavLink to="/technology" activeClassName="active">
+                    {dictionary[language].header.technology}
                   </NavLink>
                 </li>
-                <li className="menuLi subMenuLi">
-                  <NavLink to="/interesting/sport" activeClassName="active">
-                    {dictionary[this.props.language].header.sport}
+                <li className="menuLi">
+                  <NavLink to="/interesting" activeClassName="active">
+                    {dictionary[language].header.hobby}
                   </NavLink>
+                  <ul className="subMenu">
+                    <li className="menuLi subMenuLi">
+                      <NavLink to="/interesting/literature" activeClassName="active">
+                        {dictionary[language].header.literature}
+                      </NavLink>
+                    </li>
+                    <li className="menuLi subMenuLi">
+                      <NavLink to="/interesting/sport" activeClassName="active">
+                        {dictionary[language].header.sport}
+                      </NavLink>
+                    </li>
+                    <li className="menuLi subMenuLi">
+                      <NavLink to="/interesting/games" activeClassName="active">
+                        {dictionary[language].header.games}
+                      </NavLink>
+                    </li>
+                  </ul>
                 </li>
-                <li className="menuLi subMenuLi">
-                  <NavLink to="/interesting/games" activeClassName="active">
-                    {dictionary[this.props.language].header.games}
+                <li className="menuLi">
+                  <NavLink to="/contacts" activeClassName="active">
+                    {dictionary[language].header.contacts}
                   </NavLink>
                 </li>
               </ul>
-            </li>
-            <li className="menuLi">
-              <NavLink to="/contacts" activeClassName="active">
-                {dictionary[this.props.language].header.contacts}
-              </NavLink>
-            </li>
-          </ul>
-        )}
-      </>
-    );
-  }
-}
+            )}
+            <div
+              className={`flag ${language}`}
+              onClick={changeLanguage(language === 'ru' ? 'en' : 'ru')}
+            />
+          </div>
+          {'/' === path ? (
+            <div className="autorPhotoBlock">
+              <div className="row">
+                <div className="autorPhotoBlockLimit">
+                  <div className="likeField" onClick={clickLike}>
+                    <div className="likePush">
+                      <img
+                        src="/src/assets/img/likeWhite.svg"
+                        alt=""
+                        className="thumbsUpOnImg"
+                      />
+                    </div>
+                    <img className="profilePhoto" src="/src/assets/img/my_photo.jpg" alt="" />
+                  </div>
+                  <div className="likesBlock">
+                    <img
+                      src="/src/assets/img/likeWhite.svg"
+                      alt=""
+                      className="thumbsUp"
+                      onClick={clickLike}
+                    />
+                    <span className="countOfLikes">{countOfLike}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : null}
+          <div className="headerTitle">
+            <div className="row">
+              <h1 className="headerTitleH1">{dictionary[language].header[title + 'Title']}</h1>
+            </div>
+          </div>
+        </div>
+      </header>
+      <MediaQuery query="(max-width: 749px)">
+        <div
+          className={`closeMenu ${menuTriggerClassName}`}
+          onClick={onMenuTriggerClick(menuTriggerStatus)}
+        />
+      </MediaQuery>
+      {menuTriggerStatus && (
+        <ul className={`menu ${menuTriggerClassName}`}>
+          <li className="menuLi">
+            <Link to="/" className={cx({ ['active']: '/' === path })}>
+              {dictionary[language].header.main}
+            </Link>
+          </li>
+          <li className="menuLi">
+            <NavLink to="/technology" activeClassName="active">
+              {dictionary[language].header.technology}
+            </NavLink>
+          </li>
+          <li className="menuLi">
+            <NavLink to="/interesting" activeClassName="active">
+              {dictionary[language].header.hobby}
+            </NavLink>
+            <ul className="subMenu">
+              <li className="menuLi subMenuLi">
+                <NavLink to="/interesting/literature" activeClassName="active">
+                  {dictionary[language].header.literature}
+                </NavLink>
+              </li>
+              <li className="menuLi subMenuLi">
+                <NavLink to="/interesting/sport" activeClassName="active">
+                  {dictionary[language].header.sport}
+                </NavLink>
+              </li>
+              <li className="menuLi subMenuLi">
+                <NavLink to="/interesting/games" activeClassName="active">
+                  {dictionary[language].header.games}
+                </NavLink>
+              </li>
+            </ul>
+          </li>
+          <li className="menuLi">
+            <NavLink to="/contacts" activeClassName="active">
+              {dictionary[language].header.contacts}
+            </NavLink>
+          </li>
+        </ul>
+      )}
+    </>
+  );
+};
 
 export default connect(
   state => ({
@@ -228,7 +216,7 @@ export default connect(
         },
       });
     },
-    showMenuReset: status => () => {
+    onShowMenuReset: status => () => {
       if (status) {
         dispatch({
           type: 'menuTrigger',
